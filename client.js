@@ -12,16 +12,16 @@ const connect = function() {
     console.log("Successfully connected to the game server");
     conn.write('Name: KTK');
     //   setInterval(() => conn.write('Move: up'), "3000");
-    // });
+  });
 
-    conn.on("data", () => {
-      console.log('you ded cuz you idled');
-    });
+  conn.on("data", () => {
+    console.log('you ded cuz you idled');
+  });
 
-    return conn;
-  };
+  return conn;
+};
 
-  console.log("Connecting...");
-  connect();
+console.log("Connecting...");
+connect();
 
-  module.exports = {connect};
+module.exports = {connect};
