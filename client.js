@@ -8,14 +8,20 @@ const connect = function() {
 
   conn.setEncoding("utf8");
 
-  conn.on("data", () => {
-    console.log('you ded cuz you idled');
-  });
+  conn.on("connect", () => {
+    console.log("Successfully connected to the game server");
+    conn.write('Name: KTK');
+    //   setInterval(() => conn.write('Move: up'), "3000");
+    // });
 
-  return conn;
-};
+    conn.on("data", () => {
+      console.log('you ded cuz you idled');
+    });
 
-console.log("Connecting...");
-connect();
+    return conn;
+  };
 
-module.exports = {connect};
+  console.log("Connecting...");
+  connect();
+
+  module.exports = {connect};
