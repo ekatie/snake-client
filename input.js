@@ -1,4 +1,5 @@
 const client = require('./client');
+const {UP_KEY, LEFT_KEY, DOWN_KEY, RIGHT_KEY, TAUNT_KEY, EAT_KEY} = require('./constants');
 
 let connection;
 
@@ -13,26 +14,27 @@ const setupInput = function(conn) {
 };
 
 const handleUserInput = (key) => {
-  if (key === '\u0003') {
-    process.exit();
-  }
-  else if (key === 'w') {
-    connection.write('Move: up');
-  }
-  else if (key === 'a') {
-    connection.write('Move: left');
-  }
-  else if (key === 's') {
-    connection.write('Move: down');
-  }
-  else if (key === 'd') {
-    connection.write('Move: right');
-  }
-  else if (key === 'b') {
-    connection.write('Say: Do u even snek, bro?');
-  }
-  else if (key === 'e') {
-    connection.write('Say: Omnomnom!');
+  switch (key) {
+    case 'w':
+      connection.write(UP_KEY);
+      break;
+    case 'a':
+      connection.write(LEFT_KEY);
+      break;
+    case 's':
+      connection.write(DOWN_KEY);
+      break;
+    case 'd':
+      connection.write(RIGHT_KEY);
+      break;
+    case 'b':
+      connection.write(TAUNT_KEY);
+      break;
+    case 'e':
+      connection.write(EAT_KEY);
+      break;
+    case '\u0003':
+      process.exit();
   }
 };
 
