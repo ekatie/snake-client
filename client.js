@@ -14,10 +14,12 @@ const connect = function() {
     conn.write('Name: KTK');
   });
 
-  conn.on("data", () => {
-    console.log('you ded cuz you idled');
-  });
+  conn.on("data", (data) => {
+    // Display "you ded cuz you idled" when game times out, or 
+    // "A new player has joined the game!" when another player joins
+    console.log('Server message:', data);
 
+  });
   return conn;
 };
 
