@@ -41,7 +41,7 @@ const connect = function() {
   });
 
   conn.on("data", (data) => {
-    // Display "you ded cuz you idled" when game times out, or 
+    // Display "you ded cuz you idled" when game times out, or
     // "A new player has joined the game!" when another player joins
     console.log('Server message:', data);
 
